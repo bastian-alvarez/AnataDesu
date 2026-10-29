@@ -1,0 +1,130 @@
+[
+  {
+    "key": "naruto",
+    "name": "Naruto Uzumaki",
+    "source": "https://myanimelist.net/character/17",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/2/284121.jpg",
+    "local": "/images/naruto.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "luffy",
+    "name": "Luffy Monkey D.",
+    "source": "https://myanimelist.net/character/40",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/9/310307.jpg",
+    "local": "/images/luffy.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "gojo",
+    "name": "Satoru Gojou",
+    "source": "https://myanimelist.net/character/164471",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/15/422168.jpg",
+    "local": "/images/gojo.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "levi",
+    "name": "Levi",
+    "source": "https://myanimelist.net/character/45627",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/2/241413.jpg",
+    "local": "/images/levi.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "tanjiro",
+    "name": "Tanjirou Kamado",
+    "source": "https://myanimelist.net/character/146156",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/6/386735.jpg",
+    "local": "/images/tanjiro.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "mikasa",
+    "name": "Mikasa Ackerman",
+    "source": "https://myanimelist.net/character/40881",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/9/215563.jpg",
+    "local": "/images/mikasa.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "killua",
+    "name": "Killua Zoldyck",
+    "source": "https://myanimelist.net/character/27",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/2/327920.jpg",
+    "local": "/images/killua.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "l",
+    "name": "L Lawliet",
+    "source": "https://myanimelist.net/character/71",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/10/249647.jpg",
+    "local": "/images/l.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "hinata",
+    "name": "Shouyou Hinata",
+    "source": "https://myanimelist.net/character/64769",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/11/243919.jpg",
+    "local": "/images/hinata.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "violet",
+    "name": "Violet Evergarden",
+    "source": "https://myanimelist.net/character/141354",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/9/345616.jpg",
+    "local": "/images/violet.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "itachi",
+    "name": "Itachi Uchiha",
+    "source": "https://myanimelist.net/character/14",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/9/284122.jpg",
+    "local": "/images/itachi.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "usagi",
+    "name": "Usagi Tsukino",
+    "source": "https://myanimelist.net/character/2030",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/4/312776.jpg",
+    "local": "/images/usagi.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "chihiro",
+    "name": "Chihiro Ogino",
+    "source": "https://myanimelist.net/character/384",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/7/434512.jpg",
+    "local": "/images/chihiro.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "edward",
+    "name": "Edward Elric",
+    "source": "https://myanimelist.net/character/11",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/9/72533.jpg",
+    "local": "/images/edward.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "goku",
+    "name": "Gokuu Son",
+    "source": "https://myanimelist.net/character/246",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/15/72546.jpg",
+    "local": "/images/goku.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "anya",
+    "name": "Anya Forger",
+    "source": "https://myanimelist.net/character/170256",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/4/457933.jpg",
+    "local": "/images/anya.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  }
+]

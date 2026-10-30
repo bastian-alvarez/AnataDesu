@@ -126,5 +126,261 @@
     "originalImage": "https://cdn.myanimelist.net/images/characters/4/457933.jpg",
     "local": "/images/anya.jpg",
     "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "sakura",
+    "name": "Sakura Haruno",
+    "source": "https://myanimelist.net/character/145",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/9/69275.jpg",
+    "local": "/images/sakura.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "kakashi",
+    "name": "Kakashi Hatake",
+    "source": "https://myanimelist.net/character/85",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/7/284129.jpg",
+    "local": "/images/kakashi.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "sasuke",
+    "name": "Sasuke Uchiha",
+    "source": "https://myanimelist.net/character/13",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/9/131317.jpg",
+    "local": "/images/sasuke.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "zoro",
+    "name": "Zoro Roronoa",
+    "source": "https://myanimelist.net/character/62",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/3/100534.jpg",
+    "local": "/images/zoro.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "nami",
+    "name": "Nami",
+    "source": "https://myanimelist.net/character/723",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/6/59914.jpg",
+    "local": "/images/nami.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "robin",
+    "name": "Robin Nico",
+    "source": "https://myanimelist.net/character/61",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/16/363700.jpg",
+    "local": "/images/robin.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "nobara",
+    "name": "Nobara Kugisaki",
+    "source": "https://myanimelist.net/character/164472",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/12/422313.jpg",
+    "local": "/images/nobara.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "megumi",
+    "name": "Megumi Fushiguro",
+    "source": "https://myanimelist.net/character/164470",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/12/621887.jpg",
+    "local": "/images/megumi.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "nezuko",
+    "name": "Nezuko Kamado",
+    "source": "https://myanimelist.net/character/146157",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/2/378254.jpg",
+    "local": "/images/nezuko.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "shinobu",
+    "name": "Shinobu Kochou",
+    "source": "https://myanimelist.net/character/146736",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/3/386591.jpg",
+    "local": "/images/shinobu.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "armin",
+    "name": "Armin Arlert",
+    "source": "https://myanimelist.net/character/46494",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/8/220267.jpg",
+    "local": "/images/armin.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "hange",
+    "name": "Hange Zoë",
+    "source": "https://myanimelist.net/character/71121",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/15/208637.jpg",
+    "local": "/images/hange.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "kurapika",
+    "name": "Kurapika",
+    "source": "https://myanimelist.net/character/28",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/3/549312.jpg",
+    "local": "/images/kurapika.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "hisoka",
+    "name": "Hisoka Morow",
+    "source": "https://myanimelist.net/character/31",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/3/174561.jpg",
+    "local": "/images/hisoka.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "light",
+    "name": "Light Yagami",
+    "source": "https://myanimelist.net/character/80",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/6/63870.jpg",
+    "local": "/images/light.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "ryuk",
+    "name": "Ryuk",
+    "source": "https://myanimelist.net/character/75",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/10/59125.jpg",
+    "local": "/images/ryuk.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "kageyama",
+    "name": "Tobio Kageyama",
+    "source": "https://myanimelist.net/character/64771",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/13/417874.jpg",
+    "local": "/images/kageyama.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "howl",
+    "name": "Howl",
+    "source": "https://myanimelist.net/character/507",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/4/83512.jpg",
+    "local": "/images/howl.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "san",
+    "name": "San",
+    "source": "https://myanimelist.net/character/2727",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/10/198811.jpg",
+    "local": "/images/san.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "sophie",
+    "name": "Sophie Hatter",
+    "source": "https://myanimelist.net/character/508",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/10/129315.jpg",
+    "local": "/images/sophie.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "alphonse",
+    "name": "Alphonse Elric",
+    "source": "https://myanimelist.net/character/12",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/5/54265.jpg",
+    "local": "/images/alphonse.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "roy",
+    "name": "Roy Mustang",
+    "source": "https://myanimelist.net/character/68",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/11/510227.jpg",
+    "local": "/images/roy.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "riza",
+    "name": "Riza Hawkeye",
+    "source": "https://myanimelist.net/character/70",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/3/83615.jpg",
+    "local": "/images/riza.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "winry",
+    "name": "Winry Rockbell",
+    "source": "https://myanimelist.net/character/63",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/15/84336.jpg",
+    "local": "/images/winry.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "vegeta",
+    "name": "Vegeta",
+    "source": "https://myanimelist.net/character/913",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/14/86185.jpg",
+    "local": "/images/vegeta.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "bulma",
+    "name": "Bulma",
+    "source": "https://myanimelist.net/character/678",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/14/280893.jpg",
+    "local": "/images/bulma.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "yor",
+    "name": "Yor Forger",
+    "source": "https://myanimelist.net/character/170329",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/11/457934.jpg",
+    "local": "/images/yor.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "frieren",
+    "name": "Frieren",
+    "source": "https://myanimelist.net/character/184947",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/7/525105.jpg",
+    "local": "/images/frieren.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "maomao",
+    "name": "Maomao",
+    "source": "https://myanimelist.net/character/155904",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/16/371204.jpg",
+    "local": "/images/maomao.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "spike",
+    "name": "Spike Spiegel",
+    "source": "https://myanimelist.net/character/1",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/11/516853.jpg",
+    "local": "/images/spike.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "lelouch",
+    "name": "Lelouch Lamperouge",
+    "source": "https://myanimelist.net/character/417",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/8/406163.jpg",
+    "local": "/images/lelouch.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "asuka",
+    "name": "Asuka Langley Souryuu",
+    "source": "https://myanimelist.net/character/94",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/12/79465.jpg",
+    "local": "/images/asuka.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
   }
 ]

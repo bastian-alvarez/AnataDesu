@@ -4,9 +4,9 @@ import { access, readFile } from 'node:fs/promises';
 import { characters, dimensions, questions } from '../public/data.js';
 import { getResult, getExplanation, validateAnswers } from '../public/engine.js';
 
-test('Los 16 personajes tienen imágenes locales, fuentes y perfiles completos', async () => {
-  assert.equal(characters.length, 16);
-  assert.equal(new Set(characters.map(character => character.id)).size, 16);
+test('Los 48 personajes tienen imágenes locales, fuentes y perfiles completos', async () => {
+  assert.equal(characters.length, 48);
+  assert.equal(new Set(characters.map(character => character.id)).size, 48);
   const credits = JSON.parse(await readFile(new URL('../public/asset-credits.json', import.meta.url)));
   for (const character of characters) {
     assert.equal(character.vector.length, dimensions.length);
@@ -58,17 +58,8 @@ test('La afinidad coincide con la fórmula publicada y el ranking está ordenado
   assert.equal(getExplanation(result)[0].label, result.traits[0].label);
 });
 
-test('Los 16 personajes son resultados alcanzables con respuestas reales', () => {
-  const examples = {
-    naruto: [2,0,0,0,0,0,0,2,0,0,0,0], luffy: [0,1,0,1,0,3,0,0,0,0,0,1],
-    gojo: [0,2,1,1,3,0,0,1,3,3,3,2], levi: [1,2,1,0,1,0,1,3,1,1,0,2],
-    tanjiro: [2,2,0,0,0,0,2,3,2,0,2,1], mikasa: [1,2,0,0,0,0,2,3,1,1,0,0],
-    killua: [2,2,3,2,3,0,3,1,3,2,3,2], l: [1,2,1,2,1,1,0,1,1,3,1,2],
-    hinata: [0,3,0,0,0,0,0,2,2,0,2,0], violet: [3,0,1,0,2,2,1,1,2,2,2,1],
-    itachi: [1,2,1,0,1,0,1,3,1,2,1,1], usagi: [2,1,2,3,0,3,2,2,0,0,2,3],
-    chihiro: [3,0,2,0,2,1,2,1,3,0,1,3], edward: [1,2,1,2,3,0,1,3,3,0,0,0],
-    goku: [0,1,0,1,0,0,0,0,0,0,3,0], anya: [2,1,2,3,3,3,3,2,3,3,3,3],
-  };
+test('Los 48 personajes son resultados alcanzables con respuestas reales', async () => {
+  const examples = JSON.parse(await readFile(new URL('./result-witnesses.json', import.meta.url)));
   assert.deepEqual(Object.keys(examples).sort(), characters.map(character => character.id).sort());
   for (const [expected, answers] of Object.entries(examples)) assert.equal(getResult(answers).character.id, expected);
 });

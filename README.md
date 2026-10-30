@@ -2,6 +2,8 @@
 
 Una web para descubrir qué personaje de anime comparte tu forma de sentir, pensar y vivir. Hecha con **Node.js y JavaScript**, sin dependencias de producción.
 
+**Sitio público:** [bastian-alvarez.github.io/AnataDesu](https://bastian-alvarez.github.io/AnataDesu/). Puedes compartir este enlace para usar la encuesta sin instalar nada ni iniciar sesión.
+
 ## Iniciar
 
 Requiere Node.js 22 o superior. No es necesario ejecutar `npm install`.
@@ -74,7 +76,11 @@ scripts/build.mjs      Generación estática de dist/
 test/                  Pruebas de catálogo, afinidad, universos, dúos y migración
 ```
 
-El repositorio principal es [bastian-alvarez/AnataDesu](https://github.com/bastian-alvarez/AnataDesu). GitHub Actions ejecuta pruebas y compilación en cada push a `main` y pull request. `dist/` se puede alojar en cualquier servicio estático; las rutas con hash permiten publicarlo también bajo un subdirectorio como GitHub Pages. El servidor Node sirve la misma aplicación localmente o en un alojamiento compatible con Node.
+El repositorio principal es [bastian-alvarez/AnataDesu](https://github.com/bastian-alvarez/AnataDesu). GitHub Actions ejecuta pruebas y compilación en cada push a `main` y pull request. Cuando las comprobaciones pasan en `main`, publica `dist/` automáticamente en GitHub Pages. También puedes iniciar el flujo manualmente desde la pestaña Actions. Los pull requests se validan sin publicar.
+
+GitHub Pages sirve la aplicación estática; el test y el modo dúo se ejecutan en el navegador. Node se usa para las pruebas y la compilación. Las rutas de recursos relativas y la navegación con hash permiten servir el sitio bajo `/AnataDesu/`. El servidor Node continúa disponible para desarrollo local o un alojamiento compatible con Node.
+
+Los resultados se guardan por dirección del sitio y navegador. Al entrar en GitHub Pages por primera vez, se comienza una aventura nueva; los resultados del alojamiento anterior siguen en ese alojamiento. Los códigos de modo dúo se pueden pegar en cualquiera de las dos versiones.
 
 ## Imágenes y créditos
 

@@ -20,7 +20,7 @@ npm run build    # Copia la aplicación lista para publicar a dist/
 npm run preview  # Sirve dist/ con Node
 ```
 
-## La experiencia · versión 1.3
+## La experiencia · versión 1.4
 
 - Portada editorial con composición de personajes, animaciones y galería filtrable.
 - 12 escenas con decisiones personales, navegación hacia atrás, atajos 1–4 y progreso guardado localmente.
@@ -45,6 +45,16 @@ Cada mundo tiene seis ilustraciones SVG originales para los finales (48 en total
 La nueva partida se guarda en `anata-desu:destiny:v2` mediante un historial validado y reconstruido al cargar. Las partidas de `anata-desu:destiny:v1` continúan con las reglas y el desenlace originales, mediante módulos congelados de compatibilidad. La duración se mantiene durante la partida. El guardado es local al navegador y alojamiento. Reiniciar el test conserva la aventura; «Borrar mi progreso» en privacidad elimina ambos formatos. No hay generación remota ni llamadas a servicios de IA.
 
 Archivos: `destiny-data.js` y `destiny-worlds.js` (mundos y duraciones), `destiny-stories.js` (escenas), `destiny-engine.js` (reglas), `destiny.js` y `destiny.css` (interfaz), `destiny-audio.js` (efectos), `destiny-legacy*.js` (primera edición). Las pruebas verifican ejemplos de los siete resultados en los ocho mundos y las tres duraciones, mortalidad, curas, deshacer, persistencia, recursos, arte y sonido opcional.
+
+## Encuentros con personajes de las series
+
+Los ocho mundos incluyen conversaciones con 24 personajes de las series y sus retratos locales. Kakashi pregunta qué primer jutsu quieres aprender y reacciona de forma distinta a cada técnica. Sakura acompaña los cuidados, el duelo y la despedida del protagonista. Otros interlocutores incluyen Gojo, Nobara, Megumi, Levi, Hange, Armin, Ichigo, Rukia, Renji, Luffy, Nami, Zoro, Robin, Tanjiro, Shinobu, Goku, Bulma, Edward, Alphonse, Riza y Winry.
+
+Las elecciones se presentan como respuestas al personaje que habla. Los diálogos consideran heridas, pérdidas, preparación y el final real de la partida. Las despedidas por muerte se muestran como recuerdos de los últimos instantes, sin alterar las consecuencias. Las partidas y las reglas se conservan: esta capa narrativa no modifica puntuaciones, vidas ni decisiones guardadas. El compañero original de misión sigue formando parte de la historia.
+
+El modo corto concentra la conversación y permite abrir «Leer la escena» para ampliar el contexto de ciertos momentos; los otros modos muestran la narración completa. La crónica incluye interlocutores y el último encuentro. Las líneas son creaciones originales de fans para una historia alternativa, no citas ni diálogos oficiales. No hay voces clonadas ni síntesis de voz.
+
+La lógica narrativa vive en `public/destiny-dialogue.js`. Los retratos existentes se reutilizan y los tres retratos nuevos de Bleach se documentan en `public/speaker-asset-credits.json`; se descargan de nuevo mediante `node scripts/fetch-speaker-assets.mjs`. El catálogo del test sigue teniendo 48 personajes.
 
 ## Cómo funciona
 

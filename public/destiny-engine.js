@@ -1,3 +1,4 @@
+import { getEndingDialogue, speakerForNode } from './destiny-dialogue.js';
 import { worlds, durations, statNames, fateArt } from './destiny-data.js';
 import { storyNode } from './destiny-stories.js';
 import * as legacy from './destiny-legacy.js';
@@ -120,13 +121,14 @@ export function getEnding(state) {
   const name = state.companion;
   const index = ['triumph','guardian','strategist','loss','sacrifice','fallen'].indexOf(state.ending);
   const title = state.ending === 'retreat' ? 'El camino que aún no termina' : endingTitles[state.worldId][index];
+  const lastCause = (state.history.at(-1)?.outcome || '').replace(/ Tu protagonista murió antes de completar la misión\.| Tu cuerpo no pudo resistir la última técnica\./g,'');
   const descriptions = {
     triumph: `Lograste ${s.goal}. ${name} vuelve contigo sin una sola herida. La información que reuniste, el cuidado del equipo y el plan compartido evitaron que alguien tuviera que pagar con su cuerpo. Hay celebraciones, abrazos y una historia que podrán contar juntos. Esta vez, nadie falta.`,
     guardian: `Lograste ${s.goal}. ${name} sale contigo de la zona de peligro. ${state.flags.includes('wounded') || state.flags.includes('companion-wounded') ? 'Las heridas de la misión necesitarán tiempo y cuidados; una victoria no borra lo vivido.' : 'El último esfuerzo agotó tus reservas. Necesitarás descanso antes de la próxima misión.'} Pero cuando los supervivientes se reúnen, pueden mirarte a los ojos. Elegiste terminar la defensa y conservar un camino de regreso.`,
     strategist: `Lograste ${s.goal} utilizando lo que descubriste sobre ${s.object}. El enemigo esperaba un último golpe y encontró un plan que ya no podía detener. ${name} vuelve contigo. ${state.flags.includes('wounded') || state.flags.includes('companion-wounded') ? 'Las heridas siguen ahí, aunque esta vez no hubo que añadir otra pérdida.' : 'La precisión y la paciencia permitieron resolver el final sin herir al equipo.'}`,
     loss: `${state.objectiveWon ? `Lograste ${s.goal}, pero` : 'El repliegue permitió volver a los supervivientes, pero'} ${name} murió durante la misión. Conservas ${s.token} y una decisión que ya no puedes cambiar dentro de esta historia. Habrá personas agradecidas por tu ayuda; también habrá un lugar vacío cuando cuentes cómo regresaste. La pérdida no desaparece con la última victoria.`,
     sacrifice: `Tu protagonista murió sosteniendo la salida mientras los supervivientes escapaban. ${state.companionHealth > 0 ? `${name} lleva consigo ${s.token} y la memoria de tu último acto.` : `La muerte de ${name} tampoco se borra: quienes regresan llevan la historia de ambos.`} No viviste para escuchar el agradecimiento de quienes salvaste. Tu historia termina aquí; las vidas que protegiste continúan.`,
-    fallen: `Tu protagonista murió antes de completar la misión. ${state.history.at(-1)?.outcome || ''} El enemigo conserva el control de ${s.object}. ${state.companionHealth > 0 ? `${name} vuelve con los supervivientes y ${s.token}, decidido a contar lo que ocurrió.` : `${name} también murió; los refuerzos encontrarán los rastros de ambos.`} La última escena no promete un regreso que esta historia ya no puede darte.`,
+    fallen: `Moriste antes de completar la misión. ${lastCause} El enemigo conserva el control sobre ${s.object}. ${state.companionHealth > 0 ? `${name} vuelve con los supervivientes y ${s.token}, decidido a contar lo que ocurrió.` : `${name} también murió; los refuerzos encontrarán los rastros de ambos.`} Tu nombre quedará en el recuerdo de quienes regresen.`,
     retreat: `Decidiste replegarte con ${name} y los supervivientes. El enemigo conserva ${s.object}; la misión necesitará refuerzos. Llevas información que el siguiente equipo no tenía y todavía puedes mirar a tu compañero cuando hable del futuro. No resolviste todo, pero dejaste una oportunidad para volver.`,
   };
   return { title, text: descriptions[state.ending], fate: state.ending, image: `./images/destiny/${state.worldId}-${fateArt(state.ending)}.svg`, alt: `Ilustración simbólica de ${state.world.name}: ${title}.` };
@@ -135,5 +137,6 @@ export function chronicle(save) {
   const state = getAdventure(save);
   const ending = getEnding(state);
   if (!ending) throw new Error('La historia aún no termina');
-  return `MI DESTINO EN ANATADESU\n${state.world.name} · ${ending.title}\n${state.legacy ? 'Primera edición' : durationFor(state.duration).name}\n\n${ending.text}\n\nMI CAMINO\n${state.history.map((entry, index) => `${index + 1}. ${entry.title}: ${entry.choice}${entry.events?.length ? ` — ${entry.events.join(' ')}` : ''}`).join('\n')}\n\nUna aventura alternativa de fans. Crea la tuya en https://bastian-alvarez.github.io/AnataDesu/#/destino`;
+  const encounter = getEndingDialogue(state, ending);
+  return `MI DESTINO EN ANATADESU\n${state.world.name} · ${ending.title}\n${state.legacy ? 'Primera edición' : durationFor(state.duration).name}\n\n${ending.text}\n\n${encounter ? `${encounter.label}\n${encounter.direction}\n${encounter.speaker.name}: «${encounter.text}»\n\n` : ''}MI CAMINO\n${state.history.map((entry, index) => `${index + 1}. ${entry.title} — ${speakerForNode(state.worldId,entry.node)?.name || 'Tu decisión'}: ${entry.choice}${entry.events?.length ? ` — ${entry.events.join(' ')}` : ''}`).join('\n')}\n\nUna aventura alternativa de fans. Crea la tuya en https://bastian-alvarez.github.io/AnataDesu/#/destino`;
 }

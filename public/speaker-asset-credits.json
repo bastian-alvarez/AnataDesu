@@ -1,0 +1,26 @@
+[
+  {
+    "key": "ichigo",
+    "name": "Ichigo Kurosaki",
+    "source": "https://myanimelist.net/character/5",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/3/512788.jpg",
+    "local": "/images/speakers/ichigo.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "rukia",
+    "name": "Rukia Kuchiki",
+    "source": "https://myanimelist.net/character/6",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/2/78215.jpg",
+    "local": "/images/speakers/rukia.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  },
+  {
+    "key": "renji",
+    "name": "Renji Abarai",
+    "source": "https://myanimelist.net/character/906",
+    "originalImage": "https://cdn.myanimelist.net/images/characters/10/171877.jpg",
+    "local": "/images/speakers/renji.jpg",
+    "credit": "Character reference image via MyAnimeList. Characters and artwork belong to their respective rights holders."
+  }
+]

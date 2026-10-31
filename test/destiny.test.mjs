@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { worlds } from '../public/destiny-data.js';
-import { newAdventure, getAdventure, choose, requirement, restoreAdventure, chronicle } from '../public/destiny-engine.js';
+import { worlds } from '../public/destiny-legacy-data.js';
+import { newAdventure, getAdventure, choose, requirement, restoreAdventure, chronicle } from '../public/destiny-legacy.js';
 
 test('all four worlds have playable routes, meaningful costs and four reachable endings', () => {
   for (const world of worlds) {

@@ -20,7 +20,7 @@ npm run build    # Copia la aplicación lista para publicar a dist/
 npm run preview  # Sirve dist/ con Node
 ```
 
-## La experiencia · versión 1.2
+## La experiencia · versión 1.3
 
 - Portada editorial con composición de personajes, animaciones y galería filtrable.
 - 12 escenas con decisiones personales, navegación hacia atrás, atajos 1–4 y progreso guardado localmente.
@@ -32,15 +32,19 @@ npm run preview  # Sirve dist/ con Node
 - Conservación del resultado completo de la primera edición. Las respuestas antiguas no se reutilizan para preguntas nuevas.
 - Diseño adaptable, navegación con teclado y respeto a `prefers-reduced-motion`.
 
-## Elige tu destino
+## Elige tu destino · Nuevos horizontes
 
-Minijuego en [#/destino](https://bastian-alvarez.github.io/AnataDesu/#/destino), con cuatro aventuras originales de fans: Naruto Shippuden, Jujutsu Kaisen, Attack on Titan y Bleach. Cada mundo incluye cuatro orígenes, cuatro técnicas, tres rutas de misión y cuatro desenlaces alcanzables. Son historias alternativas, independientes del argumento oficial.
+Minijuego en [#/destino](https://bastian-alvarez.github.io/AnataDesu/#/destino), con ocho aventuras alternativas: Naruto Shippuden, Jujutsu Kaisen, Attack on Titan, Bleach, One Piece, Demon Slayer, Dragon Ball y Fullmetal Alchemist. Las misiones, enemigos y compañeros son creaciones editoriales de fans; no reproducen el argumento oficial.
 
-Cada episodio tiene siete decisiones: origen, técnica y cinco capítulos. Valor, ingenio, vínculos y reserva cambian con las elecciones. Las técnicas permiten acciones exclusivas, investigar desbloquea el uso de información y elegir un aliado permite coordinarse con él. Los finales dependen de requisitos visibles; siempre existe una salida de regreso con refuerzos.
+Antes de comenzar se elige una duración: **Un destello**, menos de 3 minutos y 6 decisiones; **Un episodio**, alrededor de 7 minutos y 12 decisiones; **Una saga**, alrededor de 15 minutos y 22 decisiones. Son estimaciones de lectura y decisión, sin temporizador ni esperas artificiales. La versión larga añade recuerdos, entrenamiento, diálogos, pactos, curas y enfrentamientos propios. Las tres tienen escenas y recorridos diferentes.
 
-La partida se guarda en `anata-desu:destiny:v1` mediante un historial de decisiones validado y reconstruido al cargar. Volver una decisión restaura también sus recursos. El guardado es local a cada navegador y alojamiento. Reiniciar el test conserva la aventura; «Borrar mi progreso» en privacidad elimina ambos. Se puede copiar una crónica con el final y las elecciones realizadas. No hay generación remota ni llamadas a servicios de IA.
+Valor, ingenio, vínculos, reserva, vida propia (8) y vida del compañero (6) cambian con las elecciones. Las técnicas desbloquean acciones. Investigar obtiene información y preparar una salida permite otros desenlaces. Siete tipos de resultado: victoria sin heridas, protección con cicatrices, estrategia, pérdida del compañero, sacrificio, muerte del protagonista y retirada. Los riesgos se señalan antes de elegir; no hay azar oculto. La muerte del protagonista termina el episodio de inmediato. La del compañero permanece en el relato y ninguna cura lo revive. Volver una decisión permite explorar la otra rama y restaura el estado anterior.
 
-Archivos: `destiny-data.js` (historias), `destiny-engine.js` (reglas y persistencia validada), `destiny.js` (interfaz) y `destiny.css`. Las pruebas recorren todos los caminos disponibles para verificar que no hay bloqueos y que los 16 finales se pueden alcanzar.
+Cada mundo tiene seis ilustraciones SVG originales para los finales (48 en total); la retirada usa la ilustración de refugio. Se pueden guardar y acompañan una crónica copiable con el resultado y las elecciones. Se regeneran con `node scripts/create-destiny-art.mjs`. Los efectos originales se sintetizan con Web Audio, sin descargas ni música de las series. Empiezan apagados, requieren pulsar «Activar efectos de sonido», tienen control de volumen y se detienen al ocultar la página o salir del modo. El juego funciona sin audio.
+
+La nueva partida se guarda en `anata-desu:destiny:v2` mediante un historial validado y reconstruido al cargar. Las partidas de `anata-desu:destiny:v1` continúan con las reglas y el desenlace originales, mediante módulos congelados de compatibilidad. La duración se mantiene durante la partida. El guardado es local al navegador y alojamiento. Reiniciar el test conserva la aventura; «Borrar mi progreso» en privacidad elimina ambos formatos. No hay generación remota ni llamadas a servicios de IA.
+
+Archivos: `destiny-data.js` y `destiny-worlds.js` (mundos y duraciones), `destiny-stories.js` (escenas), `destiny-engine.js` (reglas), `destiny.js` y `destiny.css` (interfaz), `destiny-audio.js` (efectos), `destiny-legacy*.js` (primera edición). Las pruebas verifican ejemplos de los siete resultados en los ocho mundos y las tres duraciones, mortalidad, curas, deshacer, persistencia, recursos, arte y sonido opcional.
 
 ## Cómo funciona
 

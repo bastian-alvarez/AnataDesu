@@ -1,0 +1,128 @@
+// Original settings, companions and conflicts for alternate fan adventures.
+const origins = entries => entries.map(([id, label, detail], index) => ({ id, label, detail, effect: [{ bonds: 2, energy: 1 }, { courage: 2, cunning: 1 }, { cunning: 2, bonds: 1 }, { courage: 1, cunning: 1, bonds: 1 }][index] }));
+const skills = entries => entries.map(([id, label, detail], index) => ({ id, label, detail, effect: [{ cunning: 1 }, { energy: 1 }, { courage: 1 }, { bonds: 1 }][index] }));
+export const additionalWorlds = [
+  {
+    id: 'onepiece', name: 'One Piece', short: 'MARES ABIERTOS', japanese: '海', color: '#f7bf65', image: 'luffy', place: 'Grand Line · Isla de las mareas', energy: 'Resistencia', originLabel: 'Elige tu origen', skillLabel: 'Elige tu especialidad',
+    premise: 'Una isla va a desaparecer bajo la marea. La llave del faro está en manos de una tripulación que vende las rutas de evacuación.',
+    origins: origins([['isleno','Isleño del East Blue','El mar se aprende escuchando a quienes regresan.'],['pirata','Pirata novato','Tu bandera todavía espera su primera hazaña.'],['cartografo','Aprendiz de cartógrafo','En cada corriente lees una posibilidad.'],['carpintero','Carpintero de puerto','Conoces las manos que mantienen a flote una promesa.']]),
+    skills: skills([['senuelo','Señuelo de navegación','Engaña al vigía con una señal falsa.'],['acrobacia','Acrobacia entre mástiles','Evita un impacto usando altura y equilibrio.'],['esgrima','Esgrima de abordaje','Abre paso con un ataque preciso.'],['cabos','Rescate con cabos','Asegura a otra persona antes de que caiga al agua.']]), cast: ['Nami','Zoro','Luffy'],
+    text: {
+      mission: ['El faro que cobró peaje','El agua sube por las escaleras del puerto. El capitán del Cobre retiene la llave del faro y exige las provisiones de la isla a cambio de encenderlo. Sin su luz, los barcos de rescate no encontrarán el paso entre los arrecifes.'],
+      scout: ['Un mapa bajo el agua','Desde un campanario ves tres canales. Dos terminan en rocas y el tercero parece cerrado por una cadena. El vigía enemigo sigue las señales del faro; una bandera falsa podría apartarlo.'],
+      rescue: ['La última barca','Una barca cargada de familias golpea contra el muelle. Una niña sostiene una caja de cartas por encima del agua. El oleaje se lleva la pasarela y tu compañero se prepara para saltar.'],
+      assault: ['Abordaje al Cobre','El barco enemigo protege la entrada del faro. Sus cubiertas se inclinan con cada ola. Puedes enfrentarte a los guardias o buscar el mecanismo que mantiene la cadena del puerto.'],
+    },
+  },
+  {
+    id: 'demonslayer', name: 'Demon Slayer', short: 'ANTES DEL ALBA', japanese: '藤', color: '#d5a4dd', image: 'tanjiro', place: 'Valle de las glicinas', energy: 'Aliento', originLabel: 'Elige tu procedencia', skillLabel: 'Elige tu entrenamiento',
+    premise: 'Los faroles de una posada se encienden solos cada noche. Quienes siguen su luz nunca alcanzan el amanecer.',
+    origins: origins([['aldea','Aldea de montaña','Aprendiste a reconocer quién falta al volver a casa.'],['cazador','Familia de cazadores','Heredaste una disciplina, no un destino.'],['herbolario','Casa de herbolarios','Un pequeño detalle puede salvar una vida.'],['viajero','Viajero sin maestro','Tu camino lo construiste paso a paso.']]),
+    skills: skills([['eco','Pasos de eco','Confunde al enemigo con tu ritmo.'],['evasiva','Respiración evasiva','Conserva el aliento al esquivar una emboscada.'],['corte','Corte de concentración','Golpea el punto que sostiene una defensa.'],['glicina','Protección de glicina','Prepara un refugio para quienes no pueden combatir.']]), cast: ['Tanjiro','Shinobu','Nezuko'],
+    text: {
+      mission: ['La posada de las cien luces','Tu cuervo te guía hasta una posada junto al bosque. Hay sandalias junto a todas las puertas, pero no se oyen pasos. Antes de medianoche llegarán más viajeros; el demonio de los faroles ya ha preparado una habitación para ellos.'],
+      scout: ['Una llama sin sombra','Las luces se mueven cuando nadie las mira. Descubres que una mecha violeta permanece quieta: podría ser la que controla las demás. El suelo cruje antes de que puedas acercarte.'],
+      rescue: ['La habitación cerrada','Encuentras a varios viajeros dormidos detrás de una puerta de papel. Respiran al mismo tiempo, como si siguieran una orden. Tu compañero percibe un hilo que se tensa cuando intentas despertarlos.'],
+      assault: ['El guardián de las mechas','El demonio espera entre lámparas apagadas. Cada golpe de su abanico cambia la forma del pasillo. Necesitas un corte limpio o una forma de romper el circuito de luces.'],
+    },
+  },
+  {
+    id: 'dragonball', name: 'Dragon Ball', short: 'MÁS ALLÁ DEL LÍMITE', japanese: '気', color: '#f6a850', image: 'goku', place: 'Valle de la estrella roja', energy: 'Ki', originLabel: 'Elige tu origen', skillLabel: 'Elige tu primera técnica',
+    premise: 'Una máquina está drenando el ki del valle. La fuerza para detenerla existe, pero usarla sin control pondría a toda la ciudad en peligro.',
+    origins: origins([['terricola','Terrícola','La fuerza también nace de cuidar tu hogar.'],['saiyan','Saiyan','Te desafía descubrir un límite y aprender a superarlo.'],['namekiano','Namekiano','La paciencia puede pesar más que un golpe.'],['escuela','Escuela de artes marciales','Entrenaste para ser mejor que tu versión de ayer.']]),
+    skills: skills([['imagen','Imagen residual','Deja una silueta falsa para distraer.'],['vuelo','Vuelo de evasión','Cruza una zona inestable sin malgastar ki.'],['onda','Onda de energía','Concentra un ataque para abrir paso.'],['escudo','Escudo de ki','Protege a otros de una onda de choque.']]), cast: ['Goku','Bulma','Vegeta'],
+    text: {
+      mission: ['El valle sin energía','Las luces de la ciudad parpadean mientras una esfera roja crece sobre el valle. La máquina del ingeniero Varek extrae ki de todo ser vivo cercano. Bulma encuentra una frecuencia para detenerla; alguien tendrá que llegar al núcleo.'],
+      scout: ['La señal que no encaja','Desde el aire ves que la esfera late cada nueve segundos. Hay un espacio entre dos pulsos, suficiente para entrar si calculas bien el momento. Un dron sigue tu rastro de energía.'],
+      rescue: ['La ciudad que no puede volar','Una plataforma se desprende sobre la plaza. Los vecinos necesitan cruzar a la zona protegida. Tu compañero puede sujetarla unos instantes, pero la máquina también está absorbiendo su fuerza.'],
+      assault: ['El anillo de defensa','Varek activa un anillo de drones alrededor del núcleo. Un ataque frontal abrirá un hueco, aunque una descarga demasiado grande alcanzaría las casas del otro lado del valle.'],
+    },
+  },
+  {
+    id: 'alchemist', name: 'Fullmetal Alchemist', short: 'LO QUE CUESTA ELEGIR', japanese: '錬', color: '#cfb076', image: 'edward', place: 'Amestris · Distrito del reloj', energy: 'Concentración', originLabel: 'Elige tu formación', skillLabel: 'Elige tu disciplina',
+    premise: 'Un círculo bajo la ciudad promete devolver lo perdido. Para romperlo tendrás que decidir qué estás dispuesto a pagar y qué jamás entregarías.',
+    origins: origins([['rural','Aprendiz de un taller rural','Toda reparación empieza por escuchar a quien espera.'],['militar','Academia militar','Sabes actuar cuando el tiempo obliga a elegir.'],['biblioteca','Archivo de alquimia','Las notas al margen suelen contar otra historia.'],['mecanico','Mecánico de automail','Entiendes el precio de volver a ponerse en pie.']]),
+    skills: skills([['replica','Réplica mineral','Crea una distracción con el material del entorno.'],['plataforma','Plataforma de evasión','Alza un paso seguro ante un derrumbe.'],['ruptura','Ruptura estructural','Desarma una barrera desde su punto de unión.'],['muro','Muro de contención','Aísla un peligro para proteger a los vecinos.']]), cast: ['Alphonse','Riza','Edward'],
+    text: {
+      mission: ['Cuando se detuvo el reloj','Todas las agujas del distrito señalan la misma hora. Bajo la plaza, el alquimista Orven ha activado un círculo que toma energía de las viviendas. Las puertas ya no se abren desde dentro. El próximo pulso llegará cuando suene la campana.'],
+      scout: ['Las líneas bajo el adoquín','Encuentras marcas de transmutación escondidas en las juntas del suelo. Una línea parece añadida después del resto. Si descubres qué conecta, podrás llegar al centro sin activar su defensa.'],
+      rescue: ['La casa sostenida en el aire','Una escalera de piedra sostiene una vivienda que se está separando del suelo. Dentro hay vecinos atrapados. Tu compañero intenta mantener firme el primer peldaño mientras tú buscas una salida.'],
+      assault: ['La puerta que se reconstruye','Cada vez que golpeas el acceso al círculo, los ladrillos vuelven a su sitio. El material se regenera siguiendo un patrón. Puedes gastar concentración en romperlo o estudiar su unión.'],
+    },
+  },
+];
+
+export const settings = {
+  naruto: {
+    companion: 'Ren', alternate: 'Aya', role: 'ninja sensor de tu promoción', place: 'el santuario de cedros', enemy: 'el desertor Shigure', object: 'el sello bajo la plaza', goal: 'cerrar el sello y liberar a la aldea', token: 'una cinta de entrenamiento',
+    opening: 'La tinta del informe todavía está húmeda. En el margen alguien ha dibujado un círculo alrededor de las casas, no del objetivo. Tu compañero reconoce el barrio: allí vive la persona que le enseñó su primer jutsu.',
+    travel: 'Los tejados quedan atrás y el bosque empieza a cerrar el cielo. Un hilo de chakra cruza los árboles a la altura de los tobillos. El mapa de Kakashi no lo señala. Ren te pide que camines a su ritmo: uno observa arriba mientras el otro vigila el suelo.',
+    clue: 'Las marcas de la barrera se repiten en tres piedras, pero una está invertida. Una anotación del mensajero explica el motivo: el sello puede cerrarse sin enfrentarse al guardián si alguien interrumpe el flujo desde el lado correcto.',
+    enemyText: 'Shigure dejó de obedecer a su aldea después de perder a su escuadrón. Ahora pretende abrir un sello que borrará todo rastro de aquella misión. En su versión del pasado no hay lugar para quienes viven hoy sobre él.',
+    hazard: 'Una segunda barrera se activa bajo tus pies. El chakra tira de tu sombra hacia el centro de la plaza. Tu compañero sostiene el borde del sello mientras se agrietan las piedras que lo separan de ti.',
+    finale: 'La plaza se ilumina desde abajo. El último símbolo del sello gira al revés y Shigure levanta la mano para romperlo. A tu espalda siguen sonando las campanas de evacuación. Solo queda un movimiento antes de que ambos caminos se cierren.',
+  },
+  jujutsu: {
+    companion: 'Aoi', alternate: 'Sora', role: 'hechicero de primer año', place: 'la sala de mantenimiento del andén', enemy: 'la maldición del último anuncio', object: 'el núcleo de la cortina', goal: 'exorcizar la maldición y sacar a los pasajeros', token: 'un billete de tren doblado',
+    opening: 'En la entrada hay un paraguas que todavía gotea. Su dueño está dentro desde ayer, aunque la estación cerró hace diez años. Tu compañero cuenta los golpes de agua para no escuchar las voces del altavoz.',
+    travel: 'Las escaleras bajan hacia una estación distinta a la del plano. En los carteles cambia una sola letra cada vez que parpadeas. Aoi marca la pared con tiza para comprobar si han dado una vuelta, y la siguiente marca aparece a tu espalda.',
+    clue: 'Los anuncios suenan solo cuando alguien tiene miedo de quedarse atrás. Una grabadora de mantenimiento conserva un minuto en silencio. Puedes usarlo para interrumpir el ciclo, pero necesitarás llegar hasta la cabina.',
+    enemyText: 'La maldición habla con las voces de quienes perdieron el último tren. Promete llevarte a casa si entregas el nombre de otra persona. La puerta de su vagón se abre como si te reconociera desde siempre.',
+    hazard: 'El andén se divide y tu compañero queda dentro de un vagón sin vías. Las puertas empiezan a cerrarse sobre un espacio que ya no conduce a la estación. Usar energía sin pensar alimentaría la cortina.',
+    finale: 'El núcleo toma forma en el vagón vacío. Las ventanas reflejan a los pasajeros que siguen esperando. Al fondo, la cabina contiene la grabación capaz de cortar el ciclo; delante de ella, la maldición anuncia tu parada.',
+  },
+  titan: {
+    companion: 'Lena', alternate: 'Noel', role: 'exploradora de tu promoción', place: 'el desván del molino', enemy: 'el titán que bloquea el portón', object: 'el mecanismo del portón', goal: 'devolver el convoy al puesto avanzado', token: 'una insignia de exploración',
+    opening: 'La lista del convoy tiene un nombre escrito dos veces: el de un niño que insistió en viajar con su abuelo. Tu compañero dobla el papel y lo guarda en el uniforme. Nadie dice qué significa que no haya llegado la bengala.',
+    travel: 'El gas silba en tu equipo de maniobras mientras cruzas tejados húmedos. Desde arriba, las calles parecen más estrechas de lo que recordabas. Lena señala un anclaje oxidado: resistiría tu peso, pero no el de dos personas a la vez.',
+    clue: 'En el molino encuentras el cuaderno del conductor. Marcó una ruta protegida por edificios altos y un pasaje que se abre desde dentro del portón. El convoy podría evitar el cruce si alguien activa el contrapeso.',
+    enemyText: 'El titán permanece junto al portón y reacciona a cada vibración del mecanismo. Armin dejó una hipótesis en el mapa: no sigue a las personas más cercanas, sino al movimiento que interrumpe su campo de visión.',
+    hazard: 'Tu último anclaje se desprende. Bajo el tejado, un brazo alcanza el borde del callejón. Tu compañero puede lanzarte su cable, aunque hacerlo dejaría su propio equipo sin una segunda sujeción.',
+    finale: 'El convoy llega al último cruce cuando la guardia empieza a cerrar el portón. La mano del titán tapa la luz entre los edificios. Alguien tiene que mover el contrapeso, atraer su atención o abrir un paso que todavía no existe.',
+  },
+  bleach: {
+    companion: 'Akari', alternate: 'Nao', role: 'integrante de tu primera patrulla', place: 'el patio de los faroles blancos', enemy: 'el hollow del farol vacío', object: 'el anclaje de la grieta', goal: 'cerrar la grieta y guiar a las almas de regreso', token: 'un cordón del uniforme',
+    opening: 'Una anciana del distrito entrega una lista de nombres a la patrulla. No pide que devuelvas el farol robado; pide que alguien pronuncie esos nombres al volver. Tu compañero memoriza el primero antes de partir.',
+    travel: 'Las calles se repiten alrededor de una luna que no cambia de posición. Akari descubre que los faroles proyectan sombra hacia arriba. Cuando una corriente espiritual apaga el más cercano, las fachadas parecen inclinarse sobre ustedes.',
+    clue: 'El farol central no contiene luz: refleja la energía de las almas atrapadas. Tres cordones lo unen a la grieta. Cortar el equivocado cerraría la salida antes de tiempo; el que vibra sin tocar el suelo sostiene el anclaje real.',
+    enemyText: 'El hollow guarda nombres en lámparas vacías. Te ofrece devolver uno a cambio del de tu compañero. Al escucharlo entiendes por qué las almas del distrito empezaron a olvidar el camino a casa.',
+    hazard: 'El suelo desaparece entre dos faroles. Tu compañero queda sujeto a un cordón espiritual que se deshace poco a poco. La grieta intenta cerrarse a su alrededor y el hollow espera que gastes toda tu fuerza antes de llegar.',
+    finale: 'Las almas se reúnen frente al farol central. La grieta pulsa con cada nombre olvidado y el hollow aprieta el anclaje. Si rompes el cordón correcto habrá una salida; si solo atacas la luz, todo el distrito podría quedar al otro lado.',
+  },
+  onepiece: {
+    companion: 'Mara', alternate: 'Ivo', role: 'navegante de tu primera tripulación', place: 'la bodega del barco varado', enemy: 'el capitán del Cobre', object: 'la lente del faro', goal: 'encender el faro y evacuar la isla', token: 'un pequeño compás de latón',
+    opening: 'En la taberna del muelle cuelga un dibujo del faro hecho por los niños de la isla. En él todos los barcos vuelven al puerto. Tu compañero lo descuelga para protegerlo del agua que ya empieza a entrar bajo la puerta.',
+    travel: 'El mar ha cubierto la calle del mercado. Mara cuenta las olas y descubre que cada séptima deja al aire una escalera hacia el faro. Alcanzarla exige confiar en su cálculo y moverse antes de ver el último peldaño.',
+    clue: 'Una bitácora explica que la lente puede girarse desde el viejo embarcadero. El capitán no controla la luz: controla la cadena que la mantiene quieta. Si marcas la corriente correcta, las barcas podrán salir antes del siguiente cambio de marea.',
+    enemyText: 'El capitán del Cobre asegura que una isla pobre no merece ocupar una buena ruta comercial. Te ofrece una parte de su botín si abandonas el faro. Mientras habla, la campana del puerto sigue pidiendo ayuda.',
+    hazard: 'Una ola arranca la pasarela. Tu compañero queda sujeto al borde por un cabo que se corta contra una placa de metal. La llave del faro cae sobre una tabla que se aleja en dirección contraria.',
+    finale: 'La última marea golpea la base del faro. Su lente sigue inmóvil y los barcos de rescate solo ven oscuridad. El capitán bloquea la escalera mientras tu tripulación espera la señal que prometiste dar antes de partir.',
+  },
+  demonslayer: {
+    companion: 'Haru', alternate: 'Yuna', role: 'cazador que superó la selección contigo', place: 'el cobertizo de glicinas', enemy: 'el demonio de los faroles', object: 'la mecha violeta', goal: 'romper el hechizo y proteger a los viajeros hasta el alba', token: 'un nudo de flores de glicina',
+    opening: 'La dueña de una casa cercana deja una olla caliente junto al camino. Dice que los cazadores suelen regresar demasiado tarde para cenar. Tu compañero promete devolverle el cuenco antes de que enfríe el arroz.',
+    travel: 'El olor a glicina se desvanece al entrar en el bosque. Haru detiene el paso cuando el silencio se vuelve completo: ni una rama cruje bajo las botas. Las luces de la posada aparecen entre árboles que hace un instante no estaban allí.',
+    clue: 'Las lámparas repiten el ritmo de la respiración de los huéspedes. La mecha violeta quema sin consumir aceite. Apagar las demás no bastará; tendrás que romper el hilo que conecta esa llama con el abanico del demonio.',
+    enemyText: 'El demonio cuenta cada viajero como si fuera una lámpara nueva. Dice que nadie sufre si permanece dormido para siempre. Tu compañero se acuerda de la cena que dejó atrás y responde que todavía tiene un cuenco que devolver.',
+    hazard: 'Los hilos de luz cierran el pasillo. Tu compañero consigue apartar a un huésped antes de quedar atrapado. El abanico del demonio gira lentamente y cada vuelta acerca los hilos al lugar donde aún puedes alcanzarlo.',
+    finale: 'La mecha violeta se alza sobre el tejado. Al este empieza a clarear, pero el demonio prepara un último cambio de habitaciones para ocultar a los viajeros. Debes romper el vínculo o sostener la defensa hasta que entre el sol.',
+  },
+  dragonball: {
+    companion: 'Kai', alternate: 'Nia', role: 'artista marcial de tu escuela', place: 'el taller bajo la antena', enemy: 'el ingeniero Varek', object: 'el regulador del núcleo', goal: 'detener la máquina sin destruir la ciudad', token: 'una pulsera de entrenamiento',
+    opening: 'La escuela de artes marciales deja sus ventanas abiertas para quienes pierdan energía en el valle. Tu compañero reserva dos esterillas junto a la puerta. La suya tiene una costura que llevaban semanas prometiendo arreglar.',
+    travel: 'La esfera roja hace vibrar las rocas antes de cada pulso. Kai practica contigo el descenso hacia el taller de Bulma. Volar más rápido no resolverá el problema: necesitarán llegar juntos y con ki suficiente para regresar.',
+    clue: 'El plano de Bulma separa el regulador de la fuente de energía. Golpear la esfera solo aumentaría su presión. Una descarga pequeña en el cable de retorno apagaría la máquina sin liberar el ki almacenado sobre las casas.',
+    enemyText: 'Varek construyó una máquina que confunde fuerza con derecho a mandar. Promete que la ciudad estará segura cuando nadie pueda oponerse a él. El temblor de las ventanas desmiente cada palabra.',
+    hazard: 'Un pulso corta el vuelo de tu compañero. La plataforma bajo sus pies empieza a caer hacia el conducto de absorción. Puedes sostenerla con tu propio ki o intentar alcanzar el regulador mientras aún está expuesto.',
+    finale: 'El regulador entra en su último ciclo. La esfera contiene suficiente energía para borrar el valle si la rompes desde fuera. Varek te reta a lanzar tu golpe más fuerte; a tu espalda la ciudad espera algo mejor que una explosión.',
+  },
+  alchemist: {
+    companion: 'Elia', alternate: 'Tomas', role: 'aprendiz del taller del distrito', place: 'el archivo bajo la estación', enemy: 'el alquimista Orven', object: 'la línea central del círculo', goal: 'desactivar el círculo y liberar las viviendas', token: 'un reloj de bolsillo sin cuerda',
+    opening: 'En el taller hay un automail esperando su última reparación. Su dueño dejó una nota: necesita la mano para tocar en la fiesta del barrio. Tu compañero la guarda contigo; todavía confía en que habrá una fiesta después de esta noche.',
+    travel: 'Las vías se curvan sobre adoquines que ya no responden a su propio peso. Elia prueba cada paso antes de indicarte dónde apoyar el siguiente. Bajo la estación se oye el reloj parado, como si la maquinaria siguiera contando por dentro.',
+    clue: 'Las fórmulas de Orven omiten un canal de retorno. La energía no tiene por qué atravesar las viviendas: un tramo de metal puede desviarla hacia tierra. Necesitarás mantener intacta la línea exterior hasta cerrar el circuito.',
+    enemyText: 'Orven dice que toda pérdida puede compensarse si alguien paga lo suficiente. En sus cuentas, las personas del distrito solo son una cifra. Tu compañero pone sobre la mesa la nota del músico: hay cosas que ningún cálculo justifica entregar.',
+    hazard: 'El círculo rompe las columnas del archivo. Tu compañero sostiene una viga para que los vecinos salgan. Orven ofrece detener el derrumbe si le permites cerrar el canal que ya has empezado a investigar.',
+    finale: 'Las agujas del reloj empiezan a moverse. La línea central se enciende bajo la plaza y las viviendas ascienden unos centímetros más. Orven espera tu decisión junto al canal de retorno. Puedes destruirlo todo o terminar de comprender lo que has descubierto.',
+  },
+};

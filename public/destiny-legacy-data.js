@@ -1,0 +1,160 @@
+// Original, alternate fan stories. No plot or dialogue is copied from the series.
+const option = (id, label, detail, next, effect = {}, extra = {}) => ({ id, label, detail, next, effect, ...extra });
+const origin = (id, label, detail, effect) => option(id, label, detail, 'skill', effect);
+const skill = (id, label, detail, effect = {}) => option(id, label, detail, 'mission', effect);
+
+export const worlds = [
+  {
+    id: 'naruto', name: 'Naruto Shippuden', short: 'SHINOBI', japanese: '忍', color: '#ff9955', image: 'naruto',
+    place: 'País del Fuego', energy: 'Chakra', originLabel: 'Elige tu clan', skillLabel: 'Elige tu primer jutsu',
+    premise: 'Un mensaje desaparecido. Una aldea sin defensa. Tu primera misión fuera de Konoha empieza antes de lo previsto.',
+    origins: [origin('uzumaki', 'Uzumaki', 'Resistencia y vínculos que no se rompen.', { bonds: 2, energy: 1 }), origin('uchiha', 'Uchiha', 'Precisión y voluntad para cambiar tu legado.', { courage: 2, cunning: 1 }), origin('hyuga', 'Hyūga', 'Disciplina para observar antes de actuar.', { cunning: 2, bonds: 1 }), origin('sin-clan', 'Sin clan', 'Tu nombre lo construirás con tus decisiones.', { courage: 1, cunning: 1, bonds: 1 })],
+    skills: [skill('clones', 'Jutsu de clonación', 'Crea un señuelo. Abre una infiltración sin gastar chakra adicional.', { cunning: 1 }), skill('sustitucion', 'Jutsu de sustitución', 'Escapa de una trampa y conserva tus fuerzas.', { energy: 1 }), skill('fuego', 'Bola de fuego', 'Despeja un paso bloqueado. El poder tiene un coste.', { courage: 1 }), skill('sellado', 'Sello de contención', 'Inmoviliza una amenaza para proteger al equipo.', { bonds: 1 })],
+    cast: ['Kakashi', 'Sakura', 'Shikamaru'],
+    text: {
+      mission: ['La carta que no llegó', 'Un mensajero desapareció cerca de una aldea del País del Fuego. Kakashi te entrega el mapa: recuperar el mensaje importa, pero hay familias atrapadas en la zona. ¿Qué priorizas?'],
+      scout: ['Huellas entre los cedros', 'Encuentras hilos casi invisibles alrededor del sendero. Tras ellos, un vigía custodia una caja con el sello del mensajero. Hay otra ruta, pero el tiempo corre.'],
+      rescue: ['El puente de papel', 'Una familia está aislada en un puente a punto de caer. Del otro lado, una figura encapuchada se lleva la carta. No puedes alcanzarlo todo a la vez.'],
+      assault: ['La entrada prohibida', 'Llegas al campamento enemigo. Han cerrado la puerta y activado una barrera. Puedes forzar el paso o descubrir quién controla el sello.'],
+      camp: ['Una fogata antes del alba', 'El equipo se reúne en un refugio. La carta revela que el ataque a la aldea es una distracción: el verdadero objetivo es un antiguo sello bajo su plaza.'],
+      crisis: ['Lo que protege un shinobi', 'Al amanecer, la barrera de la plaza empieza a romperse. Tus aliados esperan una señal. El plan de esta noche decidirá quién podrá llegar al sello.'],
+      finale: ['Tu nombre en el pergamino', 'El sello está a un paso de abrirse. El mensajero sigue vivo, pero el enemigo ya está aquí. Es el momento de decidir qué clase de shinobi vas a ser.'],
+    },
+    special: ['clones', 'Enviar un clon como señuelo', 'Tu vigía falso atrae al guardia. Recuperas la carta sin delatar al equipo.'],
+    power: ['fuego', 'Abrir paso con una bola de fuego', 'El fuego rompe la barrera exterior. Llegas al patio, aunque el enemigo ya sabe dónde estás.'],
+    escape: ['sustitucion', 'Sustituirte antes de activar la trampa', 'Un tronco recibe el impacto. Tú conservas el chakra y alcanzas el otro lado.'],
+    protect: ['sellado', 'Contener la ruptura con tu sello', 'Tu técnica sostiene la barrera el tiempo necesario para evacuar a las familias.'],
+    endings: {
+      guardian: ['El escudo de la aldea', 'Sostienes la defensa junto a tus aliados mientras el mensajero pone a salvo la carta. El antiguo sello vuelve a cerrarse. La aldea recordará a quien decidió que ninguna misión valía más que su gente.'],
+      strategist: ['La sombra que cambió la misión', 'Usas lo que descubriste para tender una trampa en la plaza vacía. El enemigo entrega su posición antes de tocar el sello. Tu primer informe lleva una anotación de Kakashi: «Pensó en el siguiente movimiento».'],
+      legend: ['El nuevo nombre de Konoha', 'Reúnes el chakra que conservaste y abres un camino hasta el núcleo de la barrera. Tu equipo termina el sellado a tu lado. Nadie esperaba tanto de tu primera misión; ahora todos quieren saber tu nombre.'],
+      survivor: ['El camino de regreso', 'Ordenas retirarse con el mensajero y la información recuperada. El sello queda en manos de un equipo de refuerzo. Regresas con preguntas y una promesa: entrenar para que la próxima vez haya otra salida.'],
+    },
+  },
+  {
+    id: 'jujutsu', name: 'Jujutsu Kaisen', short: 'HECHICERÍA', japanese: '呪', color: '#bb9aff', image: 'gojo',
+    place: 'Tokio, estación cerrada', energy: 'Energía maldita', originLabel: 'Elige tu origen', skillLabel: 'Elige tu técnica inicial',
+    premise: 'Una estación borrada de los mapas acaba de reaparecer. Dentro hay civiles, una barrera y una maldición que aprende de tus movimientos.',
+    origins: [origin('zenin', 'Familia Zenin', 'Entrenamiento riguroso y un legado que cuestionar.', { courage: 2, cunning: 1 }), origin('kamo', 'Familia Kamo', 'Control y paciencia bajo presión.', { cunning: 2, bonds: 1 }), origin('escuela', 'Escuela de hechicería', 'Tu equipo es la familia que elegiste.', { bonds: 2, energy: 1 }), origin('despertar', 'Despertar independiente', 'Aprendiste a sobrevivir antes de entender tu poder.', { courage: 1, cunning: 1, bonds: 1 })],
+    skills: [skill('senuelo', 'Señuelo de energía', 'Desvía la atención de una maldición.', { cunning: 1 }), skill('refuerzo', 'Refuerzo corporal', 'Cruza una zona de impacto sin agotarte.', { energy: 1 }), skill('impacto', 'Impacto concentrado', 'Rompe defensas a corta distancia.', { courage: 1 }), skill('barrera', 'Barrera simple', 'Da unos segundos de refugio a otras personas.', { bonds: 1 })],
+    cast: ['Nobara', 'Megumi', 'Gojo'],
+    text: {
+      mission: ['El último tren', 'Una cortina cubre una estación fuera de servicio. Se oyen anuncios de un tren que nunca llega. Nobara detecta personas dentro; Megumi encuentra un acceso por los túneles.'],
+      scout: ['El andén que se repite', 'La escalera te devuelve al mismo andén. Una máquina de billetes late como un corazón. Cada vez que usas energía, la estación cambia de forma.'],
+      rescue: ['Pasajeros sin salida', 'Los civiles siguen una voz que promete sacarlos de la estación. Descubres que la voz los acerca a una puerta sellada. Tienes que detenerlos sin provocar una estampida.'],
+      assault: ['Al otro lado del torno', 'La maldición levanta un muro de metal entre tú y el centro de la cortina. Un ataque directo puede atravesarlo, pero también alimentará su siguiente transformación.'],
+      camp: ['Sesenta segundos de silencio', 'Tras una puerta de mantenimiento encuentras un respiro. La maldición imita el miedo de los pasajeros. Tu equipo necesita un plan antes de que vuelva el anuncio del tren.'],
+      crisis: ['No escuches tu nombre', 'Los altavoces llaman a cada miembro del equipo por su nombre. Dos salidas se abren: una hacia los civiles y otra hacia el núcleo de la cortina. Coordinarse es la única forma de alcanzar ambas.'],
+      finale: ['La última parada', 'El núcleo toma la forma de un vagón vacío. Las puertas comienzan a cerrarse. Debes decidir cómo terminar la misión antes de que la estación vuelva a desaparecer.'],
+    },
+    special: ['senuelo', 'Enviar un señuelo de energía', 'La estación sigue tu rastro falso. Descubres dónde se esconde el núcleo sin revelar tu posición.'],
+    power: ['impacto', 'Concentrar el impacto en el torno', 'Abres una grieta y cruzas el muro. La maldición se repliega, preparada para tu siguiente golpe.'],
+    escape: ['refuerzo', 'Reforzar tu cuerpo y cruzar', 'Resistes el choque de la puerta y llevas a los pasajeros al pasillo seguro.'],
+    protect: ['barrera', 'Levantar una barrera simple', 'El anuncio deja de oírse dentro de tu refugio. Los civiles recuperan el control y siguen al equipo.'],
+    endings: {
+      guardian: ['Nadie se queda en el andén', 'Mantienes la ruta de evacuación mientras tus compañeros contienen el núcleo. Cuando cae la cortina, todos los pasajeros están fuera. Tu técnica no ocupa el informe entero; los nombres de quienes salvaste, sí.'],
+      strategist: ['El exorcismo silencioso', 'Comprendes el patrón de los anuncios y cortas su ciclo. La maldición queda expuesta justo cuando llega tu equipo. La estación regresa al mapa, esta vez vacía y en silencio.'],
+      legend: ['La grieta en la cortina', 'Concentras la energía que reservaste en el núcleo. El vagón se deshace y tu equipo termina el exorcismo. Al salir, Gojo pregunta cuánto tiempo llevabas esperando probar ese movimiento.'],
+      survivor: ['Un billete de vuelta', 'Marcas el núcleo para un equipo de refuerzo y sacas a los pasajeros que puedes alcanzar. La misión sigue abierta, pero ahora existe una ruta segura. Volverás con un plan mejor.'],
+    },
+  },
+  {
+    id: 'titan', name: 'Attack on Titan', short: 'TRAS EL MURO', japanese: '翼', color: '#9cb990', image: 'levi',
+    place: 'Puesto de exploración', energy: 'Gas de maniobras', originLabel: 'Elige tu procedencia', skillLabel: 'Elige tu especialidad',
+    premise: 'Un convoy no ha llegado al puesto avanzado. Entre la niebla y los titanes tendrás que decidir qué significa conquistar la libertad.',
+    origins: [origin('frontera', 'Distrito fronterizo', 'Conoces el precio de una puerta abierta.', { courage: 2, cunning: 1 }), origin('interior', 'Distrito del interior', 'Sabes leer mapas y hacer preguntas difíciles.', { cunning: 2, bonds: 1 }), origin('refugio', 'Barrio de refugiados', 'Nunca olvidas a quienes te ayudaron a levantarte.', { bonds: 2, energy: 1 }), origin('rural', 'Aldea rural', 'Improvisas con lo que tienes a mano.', { courage: 1, cunning: 1, bonds: 1 })],
+    skills: [skill('bengalas', 'Señales de distracción', 'Desvía a un titán y revela una ruta.', { cunning: 1 }), skill('maniobras', 'Maniobras de evasión', 'Cruza obstáculos aprovechando mejor el gas.', { energy: 1 }), skill('corte', 'Corte de precisión', 'Abre paso en una situación límite.', { courage: 1 }), skill('rescate', 'Arnés de rescate', 'Mantén a otra persona a salvo durante el vuelo.', { bonds: 1 })],
+    cast: ['Mikasa', 'Armin', 'Levi'],
+    text: {
+      mission: ['La bengala que faltaba', 'El convoy de suministros debía llegar antes del atardecer. Desde la torre solo se distingue humo. Levi pide un reconocimiento; una carreta de civiles también tomó ese camino.'],
+      scout: ['Sombras en la niebla', 'Desde un tejado ves huellas de ruedas hacia el bosque. Un titán bloquea el cruce y no responde al ruido habitual. Necesitas observarlo o alejarlo de la ruta.'],
+      rescue: ['La carreta volcada', 'Encuentras a los civiles junto a una rueda rota. Hay gas suficiente para transportar a algunos, pero el resto tendrá que cruzar un callejón a pie.'],
+      assault: ['Un paso entre ruinas', 'Un titán ocupa la salida al bosque. Puedes ganar altura para un ataque o desmontar una pasarela y obligarlo a cambiar de dirección.'],
+      camp: ['El tejado más alto', 'Armin extiende el mapa del convoy sobre unas tejas. La carga quedó atrapada cerca del puesto avanzado. El gas escasea y se acerca la noche: habrá que elegir el siguiente movimiento.'],
+      crisis: ['La señal de retirada', 'Una bengala anuncia que otro grupo necesita ayuda. El convoy está a la vista, pero la ruta de vuelta ya no es segura. Tus compañeros buscan en ti una decisión.'],
+      finale: ['Antes de cerrar la puerta', 'El puesto avanzado prepara el cierre de su portón. Entre las carretas y los titanes queda el último tramo. Tu decisión marcará el recuerdo de esta expedición.'],
+    },
+    special: ['bengalas', 'Lanzar señales de distracción', 'El titán sigue la luz lejos del cruce. Puedes marcar la ruta para todo el convoy.'],
+    power: ['corte', 'Abrir paso con un corte de precisión', 'Tu ataque libera la salida. Gastas gas para recuperar altura y cubrir el siguiente movimiento.'],
+    escape: ['maniobras', 'Trazar una ruta de evasión', 'Usas los tejados para cruzar el callejón sin desperdiciar gas. Los civiles siguen tus señales.'],
+    protect: ['rescate', 'Asegurar al herido con tu arnés', 'Vuelas con una persona más hasta la zona segura. El equipo organiza el traslado del resto.'],
+    endings: {
+      guardian: ['Las alas del regreso', 'Formas una cadena de rescate hasta el portón. Parte de la carga queda atrás, pero nadie de tu grupo se queda fuera. Para quienes vuelven contigo, la libertad empieza por tener a dónde regresar.'],
+      strategist: ['La ruta que nadie vio', 'Con las señales y el terreno a tu favor, desvías a los titanes y guías el convoy por un paso olvidado. Armin incorpora tu recorrido al próximo mapa de exploración.'],
+      legend: ['Una bengala al amanecer', 'Usas tu última reserva de gas para despejar la entrada. El convoy cruza mientras tu equipo cubre el portón. Al amanecer, una bengala celebra que el puesto sigue en pie.'],
+      survivor: ['Volver para contarlo', 'Dejas una señal sobre los suministros y priorizas el regreso. El siguiente equipo sabrá dónde buscar y qué ruta evitar. La expedición no termina como esperabas; tu historia tampoco termina aquí.'],
+    },
+  },
+  {
+    id: 'bleach', name: 'Bleach', short: 'ENTRE DOS MUNDOS', japanese: '魂', color: '#7cc9df', image: null,
+    place: 'Frontera de la Sociedad de Almas', energy: 'Presión espiritual', originLabel: 'Elige tu procedencia', skillLabel: 'Elige tu disciplina inicial',
+    premise: 'Un distrito ha perdido sus luces. Las almas que lo cruzan desaparecen y tu primera patrulla encuentra una grieta entre dos mundos.',
+    origins: [origin('rukongai', 'Rukongai', 'Los lazos de tu distrito te enseñaron a resistir.', { bonds: 2, energy: 1 }), origin('academia', 'Academia de shinigami', 'Entrenamiento, disciplina y ganas de demostrarlo.', { courage: 2, cunning: 1 }), origin('archivo', 'Familia de archivistas', 'Lees los rastros que otros pasan por alto.', { cunning: 2, bonds: 1 }), origin('humano', 'Humano con percepción espiritual', 'Ves el otro mundo y decides no apartar la mirada.', { courage: 1, cunning: 1, bonds: 1 })],
+    skills: [skill('rastro', 'Rastro espiritual ilusorio', 'Atrae una presencia hacia un camino falso.', { cunning: 1 }), skill('paso', 'Paso evasivo', 'Cruza una zona de peligro conservando energía.', { energy: 1 }), skill('zanjutsu', 'Zanjutsu', 'Un corte preciso para abrirte camino.', { courage: 1 }), skill('kido', 'Kidō de contención', 'Mantén una amenaza lejos de las almas indefensas.', { bonds: 1 })],
+    cast: ['Rukia', 'Renji', 'Ichigo'],
+    text: {
+      mission: ['El distrito sin faroles', 'Rukia encuentra una calle donde ninguna alma deja huellas. Al fondo hay un farol encendido y una grieta que crece con cada desaparición. Tu patrulla debe llegar antes de que caiga la noche.'],
+      scout: ['Ecos bajo el puente', 'Sigues un rastro espiritual hasta un puente vacío. Una presencia imita los pasos de las almas desaparecidas. El reflejo del agua revela un camino distinto al de la calle.'],
+      rescue: ['Almas en la niebla', 'Varias almas caminan hacia el farol sin responder a tu voz. Una de ellas reconoce tu presencia y te pide ayuda. La grieta reacciona en cuanto te acercas.'],
+      assault: ['La puerta de ceniza', 'Una masa de energía cierra el acceso al farol. Tras ella percibes un hollow que protege la grieta. Su defensa tiene un punto débil, pero acercarse consume tus fuerzas.'],
+      camp: ['Bajo el último farol', 'Renji sostiene la entrada mientras revisas lo encontrado. El farol mantiene abierta la grieta y atrae a las almas. Apagarlo sin cerrar primero el paso podría dejarlas atrapadas.'],
+      crisis: ['El otro lado del silencio', 'La grieta se extiende por las paredes. Una parte de la patrulla puede acompañar a las almas; la otra tendrá que contener al hollow. Tu preparación decidirá cómo dividir al equipo.'],
+      finale: ['El filo de tu promesa', 'El farol se eleva sobre la grieta. Detrás de ti esperan las almas rescatadas; delante, el guardián del paso. Tu primera patrulla llega a su decisión final.'],
+    },
+    special: ['rastro', 'Crear un rastro espiritual ilusorio', 'La presencia sigue el eco falso. Descubres el anclaje del farol sin enfrentarte a su guardián.'],
+    power: ['zanjutsu', 'Abrir la defensa con zanjutsu', 'Tu corte alcanza el punto débil. La entrada queda libre, pero sostenerla requiere más presión espiritual.'],
+    escape: ['paso', 'Atravesar la niebla con un paso evasivo', 'Llegas al farol antes de que cambie la calle y señalas un camino estable a las almas.'],
+    protect: ['kido', 'Contener la grieta con kidō', 'Los bordes dejan de crecer. Durante unos instantes, todas las almas pueden escuchar a la patrulla.'],
+    endings: {
+      guardian: ['El farol de las almas', 'Contienes el paso mientras la patrulla guía a las almas de regreso. La última cruza antes de que apagues el farol. En el distrito vuelven a encenderse las luces.'],
+      strategist: ['Quien leyó el silencio', 'Rompes el vínculo entre el farol y su guardián siguiendo los rastros que reuniste. La grieta se cierra desde dentro hacia fuera. Rukia deja constancia de tu hallazgo en el informe de la patrulla.'],
+      legend: ['Un filo entre dos mundos', 'Concentras tu presión espiritual en el anclaje de la grieta. El corte abre una salida y tu equipo completa la contención. Es el primer capítulo de una reputación que aún tienes que construir.'],
+      survivor: ['La patrulla que volverá', 'Aseguras el perímetro y llevas a las almas rescatadas hasta un refugio. La grieta necesitará refuerzos. Antes de retirarte, dejas una marca en el camino: sabes dónde empieza tu próxima misión.'],
+    },
+  },
+];
+
+export const statNames = { courage: 'Valor', cunning: 'Ingenio', bonds: 'Vínculos', energy: 'Reserva' };
+
+export function getNodes(world) {
+  const node = (id, chapter, choices) => ({ id, chapter, title: world.text[id][0], text: world.text[id][1], choices });
+  const tech = (entry, next, effect) => option('technique', entry[1], entry[2], next, effect, { requires: { skill: entry[0] }, outcome: entry[2] });
+  return {
+    origin: { id: 'origin', chapter: 0, title: world.originLabel, text: 'Tu origen te da un punto de partida. Lo que hagas después escribirá el resto.', choices: world.origins },
+    skill: { id: 'skill', chapter: 0, title: world.skillLabel, text: 'Esta técnica abrirá opciones exclusivas durante la misión. Puedes ganar de distintas maneras: elige cómo quieres empezar.', choices: world.skills },
+    mission: node('mission', 1, [
+      option('scout', 'Investigar antes de avanzar', 'Busca información y una ruta discreta.', 'scout', { cunning: 1 }, { outcome: 'Elegiste conocer el terreno antes de actuar.' }),
+      option('rescue', 'Ir donde necesitan ayuda', 'Prioriza a las personas atrapadas.', 'rescue', { bonds: 1 }, { outcome: 'El equipo siguió tu decisión de buscar supervivientes.' }),
+      option('assault', 'Abrir camino hacia la amenaza', 'Toma la iniciativa y acorta la distancia.', 'assault', { courage: 1 }, { outcome: 'Te adelantaste para enfrentar la amenaza de cerca.' }),
+    ]),
+    scout: node('scout', 2, [{ ...tech(world.special, 'camp', { cunning: 2 }), flag: 'intel' },
+      option('observe', 'Esperar y estudiar el patrón', 'La paciencia revela la clave del recorrido.', 'camp', { cunning: 2, energy: -1 }, { flag: 'intel', outcome: 'Descubriste un patrón que podrás usar al preparar el desenlace.' }),
+      option('team', 'Coordinar una distracción', 'Reparte las tareas y confía en tu compañero.', 'camp', { bonds: 2 }, { outcome: 'La distracción del equipo abrió una ruta segura.' }),
+    ]),
+    rescue: node('rescue', 2, [tech(world.escape, 'camp', { bonds: 2 }),
+      option('carry', 'Ayudar personalmente a cruzar', 'Gasta una reserva para sacar a los heridos.', 'camp', { bonds: 2, energy: -1 }, { outcome: 'Llevaste a los heridos hasta el refugio y ganaste su confianza.' }),
+      option('route', 'Preparar una ruta para todos', 'Usa el terreno para organizar la evacuación.', 'camp', { cunning: 2 }, { flag: 'intel', outcome: 'Marcaste una vía alternativa y descubriste cómo rodear la amenaza.' }),
+    ]),
+    assault: node('assault', 2, [tech(world.power, 'camp', { courage: 2, energy: -1 }),
+      option('breach', 'Forzar una apertura', 'El esfuerzo abre paso, a costa de tu reserva.', 'camp', { courage: 2, energy: -2 }, { outcome: 'Abriste el paso por la fuerza y el equipo te siguió.' }),
+      option('weakness', 'Buscar un punto débil', 'Una observación precisa evita un choque frontal.', 'camp', { cunning: 2, energy: -1 }, { flag: 'intel', outcome: 'Identificaste un punto débil que cambia el plan de la misión.' }),
+    ]),
+    camp: node('camp', 3, [
+      option('ally', `Confiar la retaguardia a ${world.cast[0]}`, 'Construye un vínculo para cubrir dos frentes.', 'crisis', { bonds: 2 }, { flag: 'ally', outcome: `${world.cast[0]} aceptó cubrir tu espalda. Ya no tendrás que afrontar el final a solas.` }),
+      option('plan', `Revisar el plan con ${world.cast[1]}`, 'Convierte lo descubierto en una ventaja.', 'crisis', { cunning: 2 }, { outcome: `${world.cast[1]} te ayudó a encontrar una segunda salida en el mapa.` }),
+      option('rest', 'Recuperar fuerzas antes de partir', 'Recarga dos puntos de reserva y afianza tu decisión.', 'crisis', { courage: 1, energy: 2 }, { outcome: 'Decidiste descansar. La reserva recuperada puede cambiar el último encuentro.' }),
+    ]),
+    crisis: node('crisis', 4, [tech(world.protect, 'finale', { bonds: 2, energy: -1 }),
+      option('trust', 'Actuar junto a tu aliado', 'La confianza permite cubrir los dos frentes.', 'finale', { bonds: 2 }, { requires: { flag: 'ally' }, outcome: `${world.cast[0]} cumplió su promesa. Entre ambos sostuvieron las dos posiciones.` }),
+      option('intel', 'Usar el punto débil descubierto', 'La información abre una salida inesperada.', 'finale', { cunning: 2 }, { requires: { flag: 'intel' }, outcome: 'Tu investigación dio resultado: la amenaza quedó expuesta antes de reaccionar.' }),
+      option('charge', 'Tomar la iniciativa', 'Gana terreno con una acción decidida.', 'finale', { courage: 2, energy: -1 }, { outcome: 'Tu avance ganó los segundos que el equipo necesitaba para reagruparse.' }),
+      option('adapt', 'Cambiar de ruta y reorganizar', 'Asegura una posición desde la que seguir.', 'finale', { cunning: 1, bonds: 1 }, { outcome: 'Improvisaste una ruta nueva. El equipo llegó al encuentro final reunido.' }),
+    ]),
+    finale: node('finale', 5, [
+      option('guardian', 'Proteger a quienes confiaron en mí', 'Tu vínculo con los demás sostiene la última defensa.', 'guardian', {}, { requires: { bonds: 6 } }),
+      option('strategist', 'Resolverlo con el plan que construí', 'Convierte tus observaciones en el movimiento decisivo.', 'strategist', {}, { requires: { cunning: 6 } }),
+      option('legend', 'Apostar por mi última técnica', 'Usa tu voluntad y la energía que conservaste.', 'legend', { energy: -2 }, { requires: { courage: 6, energy: 2 } }),
+      option('survivor', 'Asegurar el regreso y pedir refuerzos', 'Vivir para volver también puede ser una victoria.', 'survivor', {}),
+    ]),
+  };
+}

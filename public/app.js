@@ -1,3 +1,4 @@
+import { createDestiny } from './destiny.js';
 import { characters, questions, dimensions, universes } from './data.js';
 import { getResult, getExplanation, getNarrative, validateAnswers, defaultPreferences, validatePreferences, getCandidateCharacters, getArchivedResult } from './engine.js';
 import { createFriendCode, parseFriendCode, compareProfiles } from './compatibility.js';
@@ -59,7 +60,7 @@ function toast(message) {
 function header(simple = false) {
   const complete = personalResult();
   const testHref = complete ? `#/resultado/${complete.character.id}` : '#/universos';
-  return `<header class="header"><div class="container nav-inner">${brand}${simple ? '<a class="exit-link" href="#/">Guardar y salir <span aria-hidden="true">↗</span></a>' : `<nav class="desktop-nav" aria-label="Navegación principal"><a href="#personajes">Los personajes</a><a href="#como-funciona">Cómo funciona</a><a href="#/duo">Modo dúo</a><a href="#preguntas">Preguntas frecuentes</a></nav><div class="nav-actions"><span class="nav-jp" lang="ja">君は誰？</span><a class="button button-small button-cream" href="${testHref}">${complete ? 'Mi resultado' : 'Hacer el test'} ${arrow}</a><button class="menu-toggle icon-button" data-action="menu" aria-label="Abrir menú" aria-expanded="false">${icon('menu')}</button></div><nav class="mobile-nav" aria-label="Navegación móvil" hidden><a href="#personajes">Los personajes</a><a href="#como-funciona">Cómo funciona</a><a href="#/duo">Modo dúo</a><a href="#preguntas">Preguntas frecuentes</a></nav>`}</div></header>`;
+  return `<header class="header"><div class="container nav-inner">${brand}${simple ? '<a class="exit-link" href="#/">Guardar y salir <span aria-hidden="true">↗</span></a>' : `<nav class="desktop-nav" aria-label="Navegación principal"><a href="#personajes">Los personajes</a><a href="#como-funciona">Cómo funciona</a><a href="#/duo">Modo dúo</a><a href="#/destino">Elige tu destino ↗</a></nav><div class="nav-actions"><span class="nav-jp" lang="ja">君は誰？</span><a class="button button-small button-cream" href="${testHref}">${complete ? 'Mi resultado' : 'Hacer el test'} ${arrow}</a><button class="menu-toggle icon-button" data-action="menu" aria-label="Abrir menú" aria-expanded="false">${icon('menu')}</button></div><nav class="mobile-nav" aria-label="Navegación móvil" hidden><a href="#personajes">Los personajes</a><a href="#como-funciona">Cómo funciona</a><a href="#/duo">Modo dúo</a><a href="#/destino">Elige tu destino ↗</a></nav>`}</div></header>`;
 }
 
 function footer() {
@@ -110,6 +111,7 @@ function renderHome() {
       <a class="scroll-cue" href="#personajes"><span>EXPLORA TU UNIVERSO</span><span aria-hidden="true">↓</span></a>
     </section>
     <div class="anime-ticker" aria-label="Universos de anime incluidos"><div class="ticker-track">${Array.from({ length: 2 }, (_, index) => `<span class="ticker-group" ${index ? 'aria-hidden="true"' : ''}>${['NARUTO', 'ONE PIECE', 'JUJUTSU KAISEN', 'DEMON SLAYER', 'ATTACK ON TITAN', 'HUNTER × HUNTER', 'DEATH NOTE'].map(name => `<span>${name}</span><span class="ticker-star">✳</span>`).join('')}</span>`).join('')}</div></div>
+    ${destiny.teaser()}
     <section class="character-section container section-space" id="personajes" aria-labelledby="characters-title"><div class="section-heading reveal"><div><p class="eyebrow coral">EL MULTIVERSO TE ESPERA</p><h2 id="characters-title">Diferentes historias.<br><span class="muted-heading">¿Cuál se parece a la tuya?</span></h2></div><p>El valor de Naruto. La libertad de Luffy.<br>La sensibilidad de Violet. Descubre<br>con quién compartes tu esencia.</p></div>
       <div class="catalog-search"><label for="catalog-query">ENCUENTRA TU UNIVERSO</label><input id="catalog-query" type="search" placeholder="Buscar personaje, anime o rasgo…" value="${escape(galleryQuery)}" autocomplete="off"><span>${characters.length} personajes · ${universes.length} universos</span></div><div class="gallery-toolbar"><div class="filters" role="group" aria-label="Filtrar personajes por género">${['Todos', 'Shōnen', 'Acción', 'Fantasía', 'Misterio', 'Deportes', 'Comedia'].map((name, index) => `<button class="filter ${index === 0 ? 'active' : ''}" data-filter="${name}" aria-pressed="${index === 0}">${name}</button>`).join('')}</div><span class="catalog-label">${characters.length} PERSONAJES <span>↙</span></span></div>
       <div class="character-grid" id="character-grid"></div><div class="gallery-bottom"><span>Tal vez tu favorito. Tal vez alguien que no esperabas.</span><button id="show-more" class="button button-outline" data-action="more"></button></div>
@@ -246,6 +248,7 @@ function route() {
   }
   observer?.disconnect();
   if (hash === '/') renderHome();
+  else if (hash === '/destino') destiny.render();
   else if (hash === '/universos') { draftPreferences = structuredClone(preferences); renderSetup(); }
   else if (hash === '/test') { if (!configured) { location.replace('#/universos'); return; } renderQuiz(); }
   else if (hash === '/duo' || hash.startsWith('/duo?')) renderDuo(hash);
@@ -351,9 +354,10 @@ app.addEventListener('click', event => {
   }
   if (action === 'previous' && current > 0) { current--; save(); renderQuiz(true); }
   if (action === 'restart' || action === 'clear') {
-    showDialog(`<div class="info-dialog"><p class="eyebrow coral">UN NUEVO PRIMER CAPÍTULO</p><h2>${action === 'restart' ? '¿Comenzamos otra vez?' : '¿Borrar tu progreso?'}</h2><p>Se borrarán las respuestas y el resultado guardados en este navegador.</p><div class="dialog-buttons"><button class="button button-outline" data-action="close-dialog">Conservar mis respuestas</button><button class="button button-primary" data-action="confirm-clear" data-restart="${action === 'restart'}">${action === 'restart' ? 'Empezar de nuevo' : 'Borrar mis respuestas'}</button></div></div>`);
+    showDialog(`<div class="info-dialog"><p class="eyebrow coral">UN NUEVO PRIMER CAPÍTULO</p><h2>${action === 'restart' ? '¿Comenzamos otra vez?' : '¿Borrar tu progreso?'}</h2><p>${action === 'restart' ? 'Se borrarán las respuestas y el resultado del test. Tu aventura de Elige tu destino se conserva.' : 'Se borrarán el test, su resultado y tu aventura de Elige tu destino en este navegador.'}</p><div class="dialog-buttons"><button class="button button-outline" data-action="close-dialog">Conservar mis respuestas</button><button class="button button-primary" data-action="confirm-clear" data-restart="${action === 'restart'}">${action === 'restart' ? 'Empezar de nuevo' : 'Borrar mis respuestas'}</button></div></div>`);
   }
   if (action === 'confirm-clear') {
+    if (button.dataset.restart !== 'true') destiny.clear();
     answers = emptyAnswers(); current = 0; archive = null; pendingFriend = null; configured = false; preferences = defaultPreferences();
     try { localStorage.removeItem(KEY); localStorage.removeItem(LEGACY_KEY); } catch { /* La memoria de la pestaña ya está limpia. */ }
     document.querySelector('#detail-dialog').close();
@@ -365,7 +369,7 @@ app.addEventListener('click', event => {
   if (action === 'download') showCardStudio(button.dataset.id);
   if (action === 'export-card') downloadCard(button.dataset.id, button);
   if (action === 'select-share') { document.querySelector('#share-url').focus(); document.querySelector('#share-url').select(); }
-  if (action === 'privacy') showDialog(`<div class="info-dialog"><p class="eyebrow coral">TU HISTORIA ES TUYA</p><h2>Privacidad, sin enredos.</h2><p>Tus respuestas y tu progreso se guardan en el almacenamiento local de este navegador. El resultado se calcula en tu dispositivo y no se envía a ningún servidor.</p><p>No usamos cuentas ni herramientas de analítica. Las fuentes pueden conectarse con Google Fonts; el proveedor de alojamiento puede registrar solicitudes técnicas. Las imágenes se sirven desde este mismo sitio.</p><p>El enlace de resultado comparte solo el personaje. Los códigos e invitaciones de modo dúo incluyen además cinco puntuaciones resumidas. Las tarjetas verticales muestran tu personaje y tus dos rasgos más presentes. Tus respuestas no se incluyen.</p><button class="button button-outline" data-action="clear">Borrar mi progreso</button></div>`);
+  if (action === 'privacy') showDialog(`<div class="info-dialog"><p class="eyebrow coral">TU HISTORIA ES TUYA</p><h2>Privacidad, sin enredos.</h2><p>Tus respuestas y tu progreso se guardan en el almacenamiento local de este navegador. El minijuego Elige tu destino guarda por separado el mundo y las decisiones de tu aventura, también solo en tu dispositivo. Si copias tu historia, compartirás el desenlace y el listado de elecciones. El resultado se calcula en tu dispositivo y no se envía a ningún servidor.</p><p>No usamos cuentas ni herramientas de analítica. Las fuentes pueden conectarse con Google Fonts; el proveedor de alojamiento puede registrar solicitudes técnicas. Las imágenes se sirven desde este mismo sitio.</p><p>El enlace de resultado comparte solo el personaje. Los códigos e invitaciones de modo dúo incluyen además cinco puntuaciones resumidas. Las tarjetas verticales muestran tu personaje y tus dos rasgos más presentes. Tus respuestas no se incluyen.</p><button class="button button-outline" data-action="clear">Borrar mi progreso</button></div>`);
   if (action === 'credits') showDialog(`<div class="info-dialog"><p class="eyebrow coral">DE FANS PARA FANS</p><h2>El talento detrás de estos universos.</h2><p>AnataDesu es un proyecto de fans sin afiliación oficial con las series. Los personajes, imágenes y marcas pertenecen a sus respectivos autores y titulares. Las imágenes se obtuvieron de MyAnimeList.</p><p>Las descripciones y los perfiles de afinidad son interpretaciones editoriales creadas para esta experiencia.</p><a class="text-link" href="./asset-credits.json" target="_blank" rel="noopener">Ver fuentes de cada imagen ↗</a><a class="text-link" href="https://github.com/bastian-alvarez/AnataDesu" target="_blank" rel="noopener">Código y comunidad en GitHub ↗</a></div>`);
 });
 
@@ -396,4 +400,5 @@ document.querySelector('.skip-link').addEventListener('click', event => {
   const main = document.querySelector('main');
   if (main) { main.tabIndex = -1; main.focus(); main.scrollIntoView(); }
 });
+const destiny = createDestiny({ app, header, footer, showDialog, toast });
 route();

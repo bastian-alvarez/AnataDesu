@@ -20,7 +20,7 @@ npm run build    # Copia la aplicación lista para publicar a dist/
 npm run preview  # Sirve dist/ con Node
 ```
 
-## La experiencia · versión 1.1
+## La experiencia · versión 1.2
 
 - Portada editorial con composición de personajes, animaciones y galería filtrable.
 - 12 escenas con decisiones personales, navegación hacia atrás, atajos 1–4 y progreso guardado localmente.
@@ -31,6 +31,16 @@ npm run preview  # Sirve dist/ con Node
 - Modo dúo: códigos e invitaciones para comparar dos resultados, similitudes, diferencias y dinámica del dúo.
 - Conservación del resultado completo de la primera edición. Las respuestas antiguas no se reutilizan para preguntas nuevas.
 - Diseño adaptable, navegación con teclado y respeto a `prefers-reduced-motion`.
+
+## Elige tu destino
+
+Minijuego en [#/destino](https://bastian-alvarez.github.io/AnataDesu/#/destino), con cuatro aventuras originales de fans: Naruto Shippuden, Jujutsu Kaisen, Attack on Titan y Bleach. Cada mundo incluye cuatro orígenes, cuatro técnicas, tres rutas de misión y cuatro desenlaces alcanzables. Son historias alternativas, independientes del argumento oficial.
+
+Cada episodio tiene siete decisiones: origen, técnica y cinco capítulos. Valor, ingenio, vínculos y reserva cambian con las elecciones. Las técnicas permiten acciones exclusivas, investigar desbloquea el uso de información y elegir un aliado permite coordinarse con él. Los finales dependen de requisitos visibles; siempre existe una salida de regreso con refuerzos.
+
+La partida se guarda en `anata-desu:destiny:v1` mediante un historial de decisiones validado y reconstruido al cargar. Volver una decisión restaura también sus recursos. El guardado es local a cada navegador y alojamiento. Reiniciar el test conserva la aventura; «Borrar mi progreso» en privacidad elimina ambos. Se puede copiar una crónica con el final y las elecciones realizadas. No hay generación remota ni llamadas a servicios de IA.
+
+Archivos: `destiny-data.js` (historias), `destiny-engine.js` (reglas y persistencia validada), `destiny.js` (interfaz) y `destiny.css`. Las pruebas recorren todos los caminos disponibles para verificar que no hay bloqueos y que los 16 finales se pueden alcanzar.
 
 ## Cómo funciona
 
@@ -50,7 +60,7 @@ La afinidad de estilo es `redondear(100 × (1 − RMSE / 80))`, donde RMSE compa
 
 ## Privacidad
 
-El cálculo ocurre en el navegador. Las respuestas, el índice de progreso, los universos elegidos, el resultado archivado y un código de amigo pendiente se guardan en `localStorage` bajo `anata-desu:v2`. El formato anterior `anata-desu:v1` se lee para conservar resultados completos. “Borrar mi progreso” limpia las dos ediciones y el código guardado. No hay cuentas, base de datos, analítica ni envío de respuestas. Las imágenes están incluidas; Google Fonts es el único recurso visual externo y tiene fuentes de respaldo del sistema.
+El cálculo ocurre en el navegador. Las respuestas, el índice de progreso, los universos elegidos, el resultado archivado y un código de amigo pendiente se guardan en `localStorage` bajo `anata-desu:v2`. El formato anterior `anata-desu:v1` se lee para conservar resultados completos. “Borrar mi progreso” limpia las dos ediciones, el código guardado y la aventura de Elige tu destino. No hay cuentas, base de datos, analítica ni envío de respuestas. Las imágenes están incluidas; Google Fonts es el único recurso visual externo y tiene fuentes de respaldo del sistema.
 
 ## Estructura
 
